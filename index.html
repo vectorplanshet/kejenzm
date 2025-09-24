@@ -602,6 +602,43 @@ body {
   margin-bottom: 0;
   padding-top: 4.5px;  /* 3 * 1.5 */
 }
+  .dynamic-zoom {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    .dynamic-zoom.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+.dynamic-zoom button {
+  width: 60px;
+  height: 60px;
+  background: white;
+  border: none;
+  cursor: pointer;
+  font-size: 48px;
+  padding: 0;
+  margin: 0;
+  line-height: 60px;
+  text-align: center;
+  border-radius: 0;
+  box-shadow: none;
+
+  color: black; /* цвет текста */
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
     </style>
 </head>
 <body>
@@ -1775,6 +1812,22 @@ function getNextObjectId3() {
     // Проверяем каждые 500 мс
     setInterval(updateAlertCount, 500);
     updateAlertCount();
+        const zoomButtons = document.getElementById('zoom-buttons');
+    let hideTimeout;
+
+    function showZoomButtons() {
+      zoomButtons.classList.add('show');
+      if (hideTimeout) clearTimeout(hideTimeout);
+      hideTimeout = setTimeout(() => {
+        zoomButtons.classList.remove('show');
+      }, 3000);
+    }
+
+    map.on('movestart', showZoomButtons);
+    map.on('move', showZoomButtons);
+
+    document.getElementById('zoom-in').onclick = () => map.zoomIn();
+    document.getElementById('zoom-out').onclick = () => map.zoomOut();
     </script>
 </body>
 </html>
