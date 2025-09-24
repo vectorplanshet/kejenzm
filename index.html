@@ -1325,11 +1325,6 @@ const icon = L.divIcon({
 
 const marker = L.marker([lat, lng], { icon }).addTo(map);
 
-if (!iconCreated) {
-    document.getElementById('warning-message').classList.add('hidden');
-    iconCreated = true;
-}
-
 const translations = {
     "supercam": "Supercam",
     "shahed": "Shahed",
