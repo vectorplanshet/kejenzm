@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Віраж ППО</title>
-    <link rel="shortcut icon" href=".png" />
+    <link rel="shortcut icon" href="logo.png" />
     <div class="template-container">
     </div>    
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -15,7 +15,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
     <script
     src="https://cdn.jsdelivr.net/gh/gokertanrisever/leaflet-ruler@master/src/leaflet-ruler.js"
     integrity="sha384-8SqKZR7V8uOetpjjbcNJHvwuHpb074WS0UXjCLhzfJUqYn3B/uWx1WVv5mwRp1mV"
@@ -23,7 +22,7 @@
 ></script>
     <style>
         /* General Map Styles */
-        #map {
+ #map {
             height: 100vh;
         }
 
@@ -161,7 +160,7 @@ input[type="text"]:focus {
             color: #dd0347;
         }
         .blue-id {
-            color: #2375D8; /* Синий цвет для текста */
+            color: #006AFE; /* Синий цвет для текста */
         }
         
 
@@ -177,7 +176,7 @@ input[type="text"]:focus {
 .blue-id .r-container,
 .blue-id .rls-container 
 .blue-id .icon-container {
-    color: #2375D8; /* Синий цвет для текста */
+    color: #006AFE; /* Синий цвет для текста */
 }
         .shifted-id-x-101 {
             margin-left: 20px;
@@ -192,65 +191,57 @@ input[type="text"]:focus {
             margin-left: 25px;
         }
         .info-container {
-            line-height: 9px;
+            line-height: 7.5px;
         }
-        .iconname {
-            line-height: 5px;
-        }
-                .iconname {
-            line-height: 5px;
-        }
-                .info-container1 {
-            line-height: 7px;
-        }
-        .label-container {
-            font-size: 8px;
-            font-weight: 600;
-                    font-family: 'Roboto', sans-serif;
- 
-            -webkit-text-stroke-color: black;
-        }
-        .r-container {
-            font-size: 8px;
-            font-weight: 600;
-            font-family: 'Roboto', sans-serif;
- 
-        }
-        .rls1-container {
-            font-size: 8px;
-            font-family: 'Roboto', sans-serif;
- 
-            display: flex;
+     .label-container {
+    font-size: 9.75px;       /* 6.5 * 1.5 */
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    -webkit-text-stroke-color: black;
+}
+
+.r-container {
+    font-size: 9.75px;       /* 6.5 * 1.5 */
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+}
+
+.rls1-container {
+    font-size: 9.75px;       /* 6.5 * 1.5 */
+    font-family: 'Roboto', sans-serif;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     font-weight: 600;
-            color: #333333;
-   }    
-        .rls-container {
-            font-size: 8px;
-            display: flex;
-            font-family: 'Roboto', sans-serif;
-            font-weight: 600;
+    color: #333333;
+}
+
+.rls-container {
+    font-size: 9.75px;       /* 6.5 * 1.5 */
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
     flex-direction: column;
     justify-content: center;
-            color: #333333;
-   }
-        .label1-container {
-            font-size: 8px;
-            font-family: 'Roboto', sans-serif;
-            font-weight: 600;
-            -webkit-text-stroke-color: black;
-            color: #333333;
-        }
-        .r1-container {
-            font-size: 8px;
-            font-weight: 600;
-            font-family: 'Roboto', sans-serif;
-            color: #333333;
-        }
+    color: #333333;
+}
 
-        /* Delete Button */
-        /* Delete Button */
+.label1-container {
+    font-size: 9.75px;       /* 6.5 * 1.5 */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    -webkit-text-stroke-color: black;
+    color: #333333;
+}
+
+.r1-container {
+    font-size: 9.75px;       /* 6.5 * 1.5 */
+    font-weight: 600;
+    font-family: 'Roboto', sans-serif;
+    color: #333333;
+}
+
+
 #deleteButton {
     width: 27.75px;           /* 18.5 * 1.5 */
     height: 24px;             /* 16 * 1.5 */
@@ -268,48 +259,65 @@ input[type="text"]:focus {
 }
 
 
+/* Smooth Transition for Modals */  
+.modal.show {
+    display: block;
+    animation: fadeIn 0.3s ease-out;
+}
 
-        /* Smooth Transition for Modals */  
-        .modal.show {
-            display: block;
-            animation: fadeIn 0.3s ease-out;
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 .icon-container {
     display: flex;
     align-items: center;
-    gap: 5.5px;
-    font-size: 7px;
+    gap: 15px;        /* 12 * 1.25 */
+    font-size: 8.75px; /* 7 * 1.25 */
     position: absolute;
-    white-space: nowrap;
+    white-space: nowrap; 
 }
-        .icon-container .icon {
-            width: 30px;
-            height: 30px;
-            object-fit: cover;
-            display: block;
-        }
+
+.icon-container::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;           
+    width: 25px;      /* 20 * 1.25 */
+    height: 0.75px;   /* 0.6 * 1.25 */
+    background-color: rgb(0, 218, 0);
+    border-radius: 1.25px; /* 1 * 1.25 */
+}
+
 .icon-container1 {
     display: flex;
     align-items: center;
-    gap: 6.5px;   /* 13 / 2 */
-    font-size: 7px; /* 14 / 2 */
+    gap: 8.125px;      /* 6.5 * 1.25 */
+    font-size: 8.75px;  /* 7 * 1.25 */
     position: absolute;
-    white-space: nowrap; /* Убираем перенос текста */
+    white-space: nowrap; 
 }
+
 .icon-container1 .icon {
-    width: 19px;   /* 34 / 2 */
-    height: 19px;  /* 34 / 2 */
+    width: 22.5px;      /* 18 * 1.25 */
+    height: 22.5px;     /* 18 * 1.25 */
     object-fit: cover;
     display: block;
 }
+
+.icon-container .icon {
+    width: 25px;        /* 20 * 1.25 */
+    height: 25px;       /* 20 * 1.25 */
+    object-fit: cover;
+    display: block;
+}
+
+
 
      /* Modal Input Background for Target Coordinates */
 #targetModal {
@@ -317,44 +325,51 @@ input[type="text"]:focus {
     border-radius: 7.5px;  /* 5 * 1.5 */
 }
 
-        #alert-container {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            z-index: 1000;
-        }
+
+#alert-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+
 #alert-menu {
     background: #d2d2d2;
-    padding: 10px; /* было 20px */
-    display: none; /* Изначально скрыто */
+    padding: 10px;       /* 20 / 2 */
+    display: none;       /* Изначально скрыто */
     border: none;
-    width: 125px; /* было 250px */
-    height: 551.5px; /* было 1103px */
+    width: 125px;        /* 250 / 2 */
+    height: 551.5px;     /* 1103 / 2 */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #000000;
-    font-size: 7px; /* было 14px */
+    font-size: 7px;      /* 14 / 2 */
     transition: all 0.3s ease;
     position: absolute;
 }
 
 #alert-menu:hover {
-    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2); /* 6 / 2, 20 / 2 */
 }
+
 .leaflet-control-attribution {
     display: none !important;
 }
+
 #alert-menu h3 {
-    margin: 0 0 5px;         /* 0 0 10px / 2 */
+    margin: 0 0 5px;   /* 0 0 10px / 2 */
     text-align: center;
-    font-size: 8px;          /* 16px / 2 */
+    font-size: 8px;    /* 16 / 2 */
     color: #c4c4c4;
 }
+
 #alert-menu div {
-    margin-bottom: 2.5px;    /* 5px / 2 */
+    margin-bottom: 2.5px; /* 5 / 2 */
 }
+
 #alert-menu input[type=checkbox] {
-    margin-right: 2.5px;     /* 5px / 2 */
+    margin-right: 2.5px;  /* 5 / 2 */
 }
+
 button#alert-button {
     width: 25.5px;             /* 17 * 1.5 */
     height: 25.5px;            /* 17 * 1.5 */
@@ -386,14 +401,13 @@ button#alert-button {
     transition: filter 0.3s ease; 
 }
 
-/* Кастомизация всплывающего окна */
 .leaflet-popup-content {
-    background-color: #f0f0f0; 
-    color: #333;               
-    padding: 15px;               /* 10 * 1.5 */
-    border-radius: 15px;         /* 10 * 1.5 */
+    background-color: #f0f0f0; /* Светлый фон */
+    color: #333;               /* Темный цвет текста */
+    padding: 10px;
+    border-radius: 10px;       /* Скругленные углы */
     font-family: 'Arial', sans-serif;
-    font-size: 21px;             /* 14 * 1.5 */
+    font-size: 14px;
 }
 
 /* Стиль для стрелочки всплывающего окна */
@@ -404,17 +418,15 @@ button#alert-button {
 .leaflet-popup-content-wrapper {
     zoom: 0.75;                  /* 0.5 * 1.5 */
 }
-
 /* Стиль для заголовка в окне */
 .leaflet-popup-content h3 {
     margin-top: 0;
-    font-size: 24px;             /* 16 * 1.5 */
+    font-size: 16px;
     color: #555;
 }
-
 .leaflet-control.ruler {
     position: absolute;
-    right: 15px;                  /* 10 * 1.5 */
+    right: 10px;
     left: auto;
     top: auto;
 }
@@ -430,7 +442,6 @@ body {
     background: #f0f0f0;
 }
 
-/* Стили меню */
 #passwordContainer {
     position: fixed;
     top: 0;
@@ -591,7 +602,7 @@ body {
   margin-bottom: 0;
   padding-top: 4.5px;  /* 3 * 1.5 */
 }
-    .dynamic-zoom {
+  .dynamic-zoom {
       position: absolute;
       bottom: 20px;
       left: 50%;
@@ -643,14 +654,7 @@ body {
     <div id="leaflet-control-layers"></div>
     </div>
     <div class="overlay"></div>
-      <div class="dynamic-zoom" id="zoom-buttons">
-    <button id="zoom-out">-</button>
-    <button id="zoom-in">+</button>
-  </div>
     <div id="map"></div>
-<!-- Модальное окно для отображения координат -->
-<!-- Меню в правом нижнем углу -->
-<!-- Меню в правом нижнем углу -->
   <div class="custom-menu">
     <div class="menu-row">
             <div style="width: 77px;"></div>
@@ -701,7 +705,6 @@ body {
 </div>
 
   </div>
-
 
     <!-- Modal Elements -->
     <div class="modal-background" id="modalBackground"></div>
@@ -950,7 +953,7 @@ map.on('layerremove', updateOverlayFilter);
 // Если карта уже загружена, сразу применим фильтр
 updateOverlayFilter();
 
-        let currentObjectId = 9500;
+        let currentObjectId = 8900;
         let deleteMode = false;
         const markers = [];
 
@@ -1094,7 +1097,6 @@ updateOverlayFilter();
                 
     // Если скорость 0, сразу устанавливаем иконку EPVO
     iconUrl = 'EPVO.png'; 
-    iconClass = 'blue-id';  
 
     // Генерируем ID от 500000 и время по Минску
     const objectId1 = getNextObjectId(); 
@@ -1102,23 +1104,17 @@ updateOverlayFilter();
 
     // Меняем iconHtml ПОЛНОСТЬЮ
     iconHtml = `
-  <div class="icon-container1 ${iconClass}">
+        <div class="icon-container1 ${iconClass}">
             <img src="${iconUrl}" class="icon" />
-            <div class="info-container1 ${shiftedClass} ${shiftedClasss}">
+            <div class="info-container ${shiftedClass} ${shiftedClasss}">
                 <span class="label1-container ${iconClass}">${objectId1} ${kievTime}</span>
-                <div class="info-container1 ${shiftedClass} ${shiftedClasss}">
+                <div class="info-container ${shiftedClass} ${shiftedClasss}">
                 <span class="r1-container ${iconClass}">EPA</span>
                 <span class="rls1-container ${iconClass}">interesting s</span>
             </div>
                         </div>
         </div>
-  `;
-                icon = L.divIcon({
-        className: 'icon',
-        html: iconHtml,
-        iconSize: [6.5, 6.5], // общий размер
-        iconAnchor: [10, 10],
-    });
+    `;
 } else {
     // Условия для выбора иконки в зависимости от скорости
     if (speed >= 120 && speed <= 121) {
@@ -1127,7 +1123,6 @@ updateOverlayFilter();
         iconUrl = 'shahed.png';
     } else if (speed >= 7559 && speed < 7560) {
         iconUrl = 'iskander.png';
-        shiftedClass = 'shifted-info-container';
     } else if (speed >= 950 && speed <= 951) {
         iconUrl = 'kalibr.png';
         iconClass = 'kr';
@@ -1142,7 +1137,6 @@ updateOverlayFilter();
         shiftedClass = 'shifted-info-container';
         iconUrl = 'Tsirkon.png';
     } else if (speed >= 14687 && speed <= 14688) {
-        shiftedClass = 'shifted-info-container';
         iconUrl = 'Kinzhal.png';
     } else if (speed >= 4899 && speed <= 4900) {
         shiftedClass = 'shifted-info-container';
@@ -1184,7 +1178,6 @@ updateOverlayFilter();
     } else if (speed >= 201 && speed <= 202) {
         iconUrl = 'beaver.png';
         iconClass = 'zl';
-        lineColor = '#006aff';  // Set blue line color for blue objects
     } else if (speed >= 329 && speed <= 330) {
         iconUrl = 'rys`.png';
         iconClass = 'zl';
@@ -1212,7 +1205,6 @@ updateOverlayFilter();
         iconClass = 'blue-id';
     } else if (speed >= 1200 && speed <= 1201) {
         iconUrl = 'Su-34.png';
-        iconClass = 'red-id su34-icon';
     } else if (speed >= 1600 && speed <= 1601) {
         iconUrl = 'Su-57.png';
     } else if (speed >= 1204 && speed <= 1205) {
@@ -1255,119 +1247,81 @@ updateOverlayFilter();
         // Если скорость не попала ни в одно условие, ставим "neyst tip.png"
         iconUrl = 'neyst tip.png';
     }
-  if (iconUrl === 'litak.png') {
-  const objectId3 = getNextLitakId();
-  iconHtml = `
-    <div class="icon-container ${iconClass}">
-      <img src="${iconUrl}" class="icon" />
-      <div class="info-container ${shiftedClass} ${shiftedClasss}">
-        <span class="label-container ${iconClass}">${objectId3}</span>
-        <span class="r-container ${iconClass}">ЛБ·</span>
-      </div>
-    </div>
-  `;
-Ы
-} else if (iconClass === 'kr') {
-      iconUrl = 'kalibr.png';
-      iconClass = 'red-id';
-  iconHtml = `
-    <div class="icon-container ${iconClass}">
-      <img src="${iconUrl}" class="icon" />
-      <div class="info-container ${shiftedClass} ${shiftedClasss}">
-        <span class="label-container ${iconClass}">${objectId}р</span>
-        <span class="r-container ${iconClass}">ПП·</span>
-      </div>
-    </div>
-  `;
-      icon = L.divIcon({
-        className: 'icon',
-        html: iconHtml,
-        iconSize: [30, 30], // общий размер
-        iconAnchor: [10, 10],
-    });
-} else if (iconClass === 'zl') {
-  const objectId2 = getNextObjectIdBlue();
+    if (iconUrl === 'litak.png') {
+        const objectId3 = getNextObjectId3(); 
+    iconHtml = `
+        <div class="icon-container ${iconClass}">
+            <img src="${iconUrl}" class="icon" />
+             <div class="info-container ${shiftedClass} ${shiftedClasss}">
+                <span class="label-container ${iconClass}">${objectId3}</span> 
+                <span class="r-container ${iconClass}">ЛБ</span>            
+            </div>
+        </div>
+    `;
+    } if (iconClass === 'kr') {
+        iconUrl = 'kalibr.png';
+        iconClass = 'red-id';
+    iconHtml = `
+        <div class="icon-container ${iconClass}">
+            <img src="${iconUrl}" class="icon" />
+             <div class="info-container ${shiftedClass} ${shiftedClasss}">
+                <span class="label-container ${iconClass}">${objectId}</span> 
+                <span class="r-container ${iconClass}">ПП</span>                
+            </div>
+        </div>
+    `;
+} else if (iconClass === 'blue-id') {
+    const objectId2 = getNextObjectId1(); 
+    iconUrl = 'blue.png';
+    iconHtml = `
+        <div class="icon-container ${iconClass}">
+            <img src="${iconUrl}" class="icon" />
+            <div class="info-container ${shiftedClass} ${shiftedClasss}">
+                <span class="label-container ${iconClass}">0${objectId2}</span>
+                <span class="r-container ${iconClass}">СВ</span>
+            </div>
+        </div>
+    `;
+    } else if (iconClass === 'zl') {
+    const objectId2 = getNextObjectId1(); 
     iconUrl = 'zl.png';
     iconHtml = `
         <div class="icon-container ${iconClass}">
             <img src="${iconUrl}" class="icon" />
             <div class="info-container ${shiftedClass} ${shiftedClasss}">
-                <span class="label-container ${iconClass}">0${objectId2}р</span>
+                <span class="label-container ${iconClass}">0${objectId2}</span>
                 <span class="r-container ${iconClass}">ЗЛ</span>
             </div>
         </div>
     `;
-              icon = L.divIcon({
-        className: 'icon',
-        html: iconHtml,
-        iconSize: [30, 30], // общий размер
-        iconAnchor: [10, 20],
-    });
-} else if (iconClass === 'blue-id') {
-  const objectId2 = getNextObjectIdBlue();
-    iconUrl = 'blue.png';
-  iconHtml = `
-    <div class="icon-container ${iconClass}">
-      <img src="${iconUrl}" class="icon" />
-      <div class="info-container ${shiftedClass} ${shiftedClasss}">
-        <span class="label-container ${iconClass}">0${objectId2}р</span>
-        <span class="r-container ${iconClass}">СВ</span>
-      </div>
-    </div>
-  `;
-          icon = L.divIcon({
-        className: 'icon',
-        html: iconHtml,
-        iconSize: [30, 30], // общий размер
-        iconAnchor: [10, 20],
-    });
 } else {
-    const iconTypes = {
-    "shahed 238.png": "Ударний дрон",
-    "shahed.png": "Ударний дрон",
-    "кр.png": "Крилата ракета"
-};
-
-// В блоке else (для обычных иконок)
-const iconName = iconTypes[iconUrl] || "Невідомий об'єкт";
-
-// Генерация случайного числа от 1 до 200
-const randomNumber = Math.floor(Math.random() * 200) + 1;
-
-
     // Основной шаблон для всех остальных случаев
     iconHtml = `
         <div class="icon-container ${iconClass}">
             <img src="${iconUrl}" class="icon" />
              <div class="info-container ${shiftedClass} ${shiftedClasss}">
-                <span class="label-container ${iconClass}">${objectId}р</span>
-                <span class="r-container ${iconClass}">ПП·</span>
+                <span class="label-container ${iconClass}">${objectId}</span>
+                <span class="r-container ${iconClass}">ПП</span>  
             </div>
         </div>
     `;
-        icon = L.divIcon({
-        className: 'icon',
-        html: iconHtml,
-        iconSize: [30, 30], // общий размер
-        iconAnchor: [15, 15],
-    });
 }
 }
 let iconCreated = false;
 
-const marker = L.marker([lat, lng], { icon }).addTo(map);
-setInterval(() => {
-    const el = document.getElementById('warning-message');
-    
-    // бросаем "монетку": 0 или 1
-    const show = Math.random() < 0.5;
+const icon = L.divIcon({
+    className: 'icon',
+    html: iconHtml,
+    iconSize: [22.5, 22.5],
+    iconAnchor: [11.25, 11.25],
+});
 
-    if (show) {
-        el.classList.remove('hidden'); // показать
-    } else {
-        el.classList.add('hidden');    // спрятать
-    }
-}, 10 * 60 * 1000); // каждые 10 минут
+const marker = L.marker([lat, lng], { icon }).addTo(map);
+
+if (!iconCreated) {
+    document.getElementById('warning-message').classList.add('hidden');
+    iconCreated = true;
+}
 
 const translations = {
     "supercam": "Supercam",
@@ -1412,7 +1366,6 @@ let objectKey = iconUrl.replace('.png', '').replace(/-/g, ' ');
 let objectType = translations[objectKey] || objectKey;
 objectType = objectType.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 
-
 let currentLat = lat;
 let currentLng = lng;
 let targetLatVar = targetLat;
@@ -1422,93 +1375,6 @@ let waypoints = [];
 let currentWaypointIndex = 0;
 let lastTimestamp = null;
 
-/// ==== Переменные для следа ====
-let showTrail = false;
-let trailCoords = [[currentLat, currentLng]]; // массив координат всего пути
-
-let trailLine = null;
-let startMarker = null;
-let trailDecorator = null;
-
-// ==== Функция определения цвета линии для DivIcon ====
-function getLineColor(marker) {
-    if (!marker || !marker.options || !marker.options.icon) return '#F70300'; // дефолт красный
-    const html = marker.options.icon.options.html || '';
-  
-    if (html.includes('shahed')) return '#FDCF00';    // жёлтый
-    if (html.includes('neyst tip')) return '#006aff'; // синий
-
-    return '#F70300'; // дефолт красный
-}
-
-
-// ==== Создание линии и стрелок ====
-function createTrail(marker) {
-    const lineColor = getLineColor(marker);
-
-    trailLine = L.polyline(trailCoords, {
-        color: lineColor,
-        weight: 0.7,
-        opacity: 1
-    }).addTo(map);
-
-    // фиксируем стартовую точку (первая в маршруте)
-    startMarker = L.circleMarker(trailCoords[0], {
-        radius: 0.2,
-        color: lineColor,
-        fillColor: lineColor,
-        fillOpacity: 1
-    }).addTo(map);
-
-    updateDecorator(lineColor);
-}
-
-// ==== Декоратор стрелок ====
-function updateDecorator(lineColor) {
-    if (trailDecorator) map.removeLayer(trailDecorator);
-
-    trailDecorator = L.polylineDecorator(trailLine, {
-        patterns: [
-            {
-                offset: '100%',
-                repeat: 0,
-                symbol: L.Symbol.arrowHead({
-                    pixelSize: 4,
-                    polygon: true,
-                    pathOptions: { color: lineColor, fillOpacity: 1 }
-                })
-            }
-        ]
-    }).addTo(map);
-}
-
-// ==== Кнопка включения/выключения следа ====
-function initTrailButton(marker) {
-    const btn = document.getElementById("left-arrow-button");
-    if (!btn) return console.warn("Кнопка #left-arrow-button не найдена!");
-
-    btn.addEventListener("click", () => {
-        showTrail = !showTrail;
-
-        if (showTrail) {
-            createTrail(marker); // отрисуем весь накопленный путь
-        } else {
-            if (trailLine) { map.removeLayer(trailLine); trailLine = null; }
-            if (startMarker) { map.removeLayer(startMarker); startMarker = null; }
-            if (trailDecorator) { map.removeLayer(trailDecorator); trailDecorator = null; }
-        }
-    });
-}
-
-// ==== Инициализация ====
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => initTrailButton(marker));
-} else {
-    initTrailButton(marker);
-}
-
-
-// ==== Popup для маркера ====
 const customPopupContent = `
     <div class="custom-popup">
         <p><strong>ЦЕЛЬ:</strong> ${objectType}</p>
@@ -1516,30 +1382,37 @@ const customPopupContent = `
         <button id="changeCoordsBtn">Изменить координаты</button>
     </div>
 `;
+
 marker.bindPopup(customPopupContent);
 
 marker.on('popupopen', () => {
-    setTimeout(() => {
+    setTimeout(() => { 
         const popupEl = marker.getPopup().getElement();
         if (!popupEl) return;
+
         const btn = popupEl.querySelector('#changeCoordsBtn');
         if (!btn) return;
+
         btn.onclick = () => {
             openCoordsModal((coordsText) => {
                 if (!coordsText) return;
+
                 const coordsList = coordsText.split("\n").map(line => {
                     const [lat, lng] = line.split(",").map(Number);
                     return [lat, lng];
                 }).filter(c => !isNaN(c[0]) && !isNaN(c[1]));
+
                 if (coordsList.length > 0) {
                     const currentPos = marker.getLatLng();
                     currentLat = currentPos.lat;
                     currentLng = currentPos.lng;
+
                     waypoints = [[currentLat, currentLng], ...coordsList];
                     currentWaypointIndex = 1;
                     targetLatVar = waypoints[1][0];
                     targetLngVar = waypoints[1][1];
                     lastTimestamp = null;
+
                     if (!isActive) {
                         isActive = true;
                         scheduleNextFrame(updatePosition);
@@ -1564,26 +1437,43 @@ function rotateIcon(lat1, lng1, lat2, lng2, speed) {
 
 markers.push(marker);
 
-// ==== Стабильное обновление позиции ====
+// ==== Стабильное обновление позиций ====
 function scheduleNextFrame(callback) {
-    if (document.hasFocus()) requestAnimationFrame(callback);
-    else setTimeout(() => { if (isActive) callback(performance.now()); }, 1000);
+    if (document.hasFocus()) {
+        requestAnimationFrame(callback);
+    } else {
+        setTimeout(() => callback(performance.now()), 1000); // обновление раз в секунду в фоне
+    }
 }
 
 function updatePosition(timestamp) {
     if (!lastTimestamp) lastTimestamp = timestamp;
-    const deltaTime = (timestamp - lastTimestamp) / 1000;
+    const deltaTime = (timestamp - lastTimestamp) / 1000; // секунды реального времени
     lastTimestamp = timestamp;
 
-    const speedMps = speed * 1000 / 3600;
-    let [newLat, newLng] = calculateNewPosition(currentLat, currentLng, speedMps, deltaTime, targetLatVar, targetLngVar);
+    const speedMps = speed * 1000 / 3600; // км/ч → м/с
+
+    const [newLat, newLng] = calculateNewPosition(
+        currentLat, currentLng, speedMps, deltaTime, targetLatVar, targetLngVar
+    );
 
     const distance = haversine(currentLat, currentLng, targetLatVar, targetLngVar);
     const stepDistance = haversine(currentLat, currentLng, newLat, newLng);
 
-    if (stepDistance >= distance || distance <= 0.00001) {
+    if (stepDistance >= distance) {
         currentLat = targetLatVar;
         currentLng = targetLngVar;
+    } else {
+        currentLat = newLat;
+        currentLng = newLng;
+        rotateIcon(currentLat, currentLng, targetLatVar, targetLngVar, speed);
+    }
+
+    marker.setLatLng([currentLat, currentLng]);
+
+    if (distance > 0.00001 && isActive) {
+        scheduleNextFrame(updatePosition);
+    } else {
         currentWaypointIndex++;
         if (currentWaypointIndex < waypoints.length) {
             targetLatVar = waypoints[currentWaypointIndex][0];
@@ -1593,33 +1483,18 @@ function updatePosition(timestamp) {
             isActive = false;
             marker.remove();
         }
-    } else {
-        currentLat = newLat;
-        currentLng = newLng;
-        rotateIcon(currentLat, currentLng, targetLatVar, targetLngVar, speed);
-        marker.setLatLng([currentLat, currentLng]);
-        scheduleNextFrame(updatePosition);
-    }
-
-    // ==== Всегда сохраняем путь ====
-    trailCoords.push([currentLat, currentLng]);
-
-    // ==== Отображаем только если включено ====
-    if (showTrail && trailLine) {
-        trailLine.setLatLngs(trailCoords);
-        updateDecorator();
     }
 }
 
-// ==== Инициализация маршрута ====
 waypoints.push([targetLat, targetLng]);
 currentWaypointIndex = 0;
 lastTimestamp = null;
 scheduleNextFrame(updatePosition);
 
 // ==== Вспомогательные функции ====
+
 function haversine(lat1, lon1, lat2, lon2) {
-    const R = 6371000;
+    const R = 6371000; // радиус Земли в метрах
     const toRad = x => x * Math.PI / 180;
     const dLat = toRad(lat2 - lat1);
     const dLon = toRad(lon2 - lon1);
@@ -1641,8 +1516,11 @@ function calculateCourse(lat1, lon1, lat2, lon2) {
 function calculateNewPosition(lat1, lon1, speedMps, deltaTime, lat2, lon2) {
     const distanceToTravel = speedMps * deltaTime;
     const distanceTotal = haversine(lat1, lon1, lat2, lon2);
+
     if (distanceToTravel >= distanceTotal) return [lat2, lon2];
+
     const fraction = distanceToTravel / distanceTotal;
+
     return [
         lat1 + (lat2 - lat1) * fraction,
         lon1 + (lon2 - lon1) * fraction
@@ -1707,8 +1585,10 @@ function openCoordsModal(callback) {
     box.querySelector('#coordsOk').onclick = () => {
         map.off('mousedown', addCoord);
         map.removeLayer(routeLine);
+
         const coordsText = textarea.value.trim();
         callback(coordsText);
+
         document.body.removeChild(box);
         document.body.removeChild(background);
     };
@@ -1722,26 +1602,37 @@ function openCoordsModal(callback) {
     };
 }
 
-// ==== Удаление маркера без удаления линии ====
+
+
+
 marker.on('click', function () {
     if (deleteMode) {
         if (confirm('Удалить этот объект?')) {
+            // Удаляем и маркер, и линию
+            if (marker.trailLine) marker.trailLine.remove();
             marker.remove();
-            isActive = false;
-            const deleteButton = document.getElementById('deleteButton');
-            if (deleteButton) {
-                deleteMode = false; // сразу выходим из режима
-                deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
+
+            deleteMode = false;
+            document.getElementById('deleteButton').innerHTML = '<i class="fas fa-trash-alt"></i>';
         }
     }
-}});});});});
+});
 
-// ==== Кнопка deleteMode ====
-document.getElementById('deleteButton').onclick = function () {
+
+                });
+            });
+        });
+
+       document.getElementById('deleteButton').onclick = function () {
     deleteMode = !deleteMode;
-    this.innerHTML = deleteMode ? '<i class="fas fa-check"></i>' : '<i class="fas fa-trash-alt"></i>';
+    
+    // Изменяем только текст и состояние, оставляем стили без изменений
+    if (deleteMode) {
+        this.innerHTML = '<i class="fas fa-check"></i>'; // Изменяем только текст
+    } else {
+        this.innerHTML = '<i class="fas fa-trash-alt"></i>'; // Изменяем только текст
+    }
 };
-
 
         window.addEventListener('beforeunload', (event) => {
             event.preventDefault();
@@ -1800,7 +1691,7 @@ fetch("front.json")
     L.geoJSON(data, {
       style: function(feature) {
         let color = '#bdbdbd'; // По умолчанию цвет "неизвестно"
-        let opacity = 1.5; // По умолчанию непрозрачность для "неизвестно"
+        let opacity = 1; // По умолчанию непрозрачность для "неизвестно"
         let fillOpacity = 1; // По умолчанию заливка непрозрачная
 
         if (feature.properties.name === 'Багатокутник 4') {
@@ -1812,7 +1703,7 @@ fetch("front.json")
         // Возвращаем стиль с прозрачностью
         return {
           color: color,
-          weight: 1.8,
+          weight: 2,
           opacity: opacity,
           fillColor: color,
           fillOpacity: fillOpacity
@@ -1842,7 +1733,7 @@ fetch('trevoga.json')
                 let region = checkbox.id;
                 if (checkbox.checked && regions[region]) {
                     let layer = L.geoJSON(regions[region], {
-                        style: { color: 'red', fillColor: 'red', fillOpacity: 0.1, weight: 0.3 }
+                        style: { color: 'red', fillColor: 'red', fillOpacity: 0.1, weight: 0.6 }
                     }).addTo(map);
                     polygons[region] = layer;
                 } else if (polygons[region]) {
@@ -1901,14 +1792,15 @@ function getNextObjectId() {
     `;
     return iconHTML;
 }
-let objectIdCounterBlue = '0750';
+let objectIdCounter1 = '0750';
 
-function getNextObjectIdBlue() {
-  return objectIdCounterBlue++;
+function getNextObjectId1() {
+    return objectIdCounter1++;
 }
-let counterLitakId = 9900;
-function getNextLitakId() {
-    return counterLitakId++;
+let objectIdCounter2 = '9900';
+
+function getNextObjectId3() {
+    return objectIdCounter2++;
 }
     function updateAlertCount() {
       const bodyText = document.body.innerText || document.body.textContent;
@@ -1920,7 +1812,7 @@ function getNextLitakId() {
     // Проверяем каждые 500 мс
     setInterval(updateAlertCount, 500);
     updateAlertCount();
-    const zoomButtons = document.getElementById('zoom-buttons');
+        const zoomButtons = document.getElementById('zoom-buttons');
     let hideTimeout;
 
     function showZoomButtons() {
