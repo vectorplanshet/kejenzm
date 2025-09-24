@@ -193,6 +193,10 @@ input[type="text"]:focus {
         .info-container {
             line-height: 7.5px;
         }
+
+            .info-container1 {
+            line-height: 10px;
+        }
      .label-container {
     font-size: 9.75px;       /* 6.5 * 1.5 */
     font-weight: 600;
@@ -207,7 +211,7 @@ input[type="text"]:focus {
 }
 
 .rls1-container {
-    font-size: 9.75px;       /* 6.5 * 1.5 */
+    font-size: 10px;       /* 6.5 * 1.5 */
     font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
@@ -227,7 +231,7 @@ input[type="text"]:focus {
 }
 
 .label1-container {
-    font-size: 9.75px;       /* 6.5 * 1.5 */
+    font-size: 10px;       /* 6.5 * 1.5 */
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
     -webkit-text-stroke-color: black;
@@ -235,7 +239,7 @@ input[type="text"]:focus {
 }
 
 .r1-container {
-    font-size: 9.75px;       /* 6.5 * 1.5 */
+    font-size: 10px;       /* 6.5 * 1.5 */
     font-weight: 600;
     font-family: 'Roboto', sans-serif;
     color: #333333;
@@ -297,15 +301,14 @@ input[type="text"]:focus {
 .icon-container1 {
     display: flex;
     align-items: center;
-    gap: 8.125px;      /* 6.5 * 1.25 */
-    font-size: 8.75px;  /* 7 * 1.25 */
+    gap: 6.5px;   /* 13 / 2 */
+    font-size: 7px; /* 14 / 2 */
     position: absolute;
-    white-space: nowrap; 
+    white-space: nowrap; /* Убираем перенос текста */
 }
-
 .icon-container1 .icon {
-    width: 22.5px;      /* 18 * 1.25 */
-    height: 22.5px;     /* 18 * 1.25 */
+    width: 25px;   /* 34 / 2 */
+    height: 25px;  /* 34 / 2 */
     object-fit: cover;
     display: block;
 }
@@ -1110,9 +1113,9 @@ updateOverlayFilter();
     iconHtml = `
         <div class="icon-container1 ${iconClass}">
             <img src="${iconUrl}" class="icon" />
-            <div class="info-container ${shiftedClass} ${shiftedClasss}">
+            <div class="info-container1 ${shiftedClass} ${shiftedClasss}">
                 <span class="label1-container ${iconClass}">${objectId1} ${kievTime}</span>
-                <div class="info-container ${shiftedClass} ${shiftedClasss}">
+                <div class="info-container1 ${shiftedClass} ${shiftedClasss}">
                 <span class="r1-container ${iconClass}">EPA</span>
                 <span class="rls1-container ${iconClass}">interesting s</span>
             </div>
@@ -1316,8 +1319,8 @@ let iconCreated = false;
 const icon = L.divIcon({
     className: 'icon',
     html: iconHtml,
-    iconSize: [22.5, 22.5],
-    iconAnchor: [11.25, 11.25],
+    iconSize: [25, 25],
+    iconAnchor: [12.5, 12.5],
 });
 
 const marker = L.marker([lat, lng], { icon }).addTo(map);
