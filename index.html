@@ -548,7 +548,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: default;
+    cursor: pointer; /* теперь видно, что можно кликнуть */
 }
 
 .custom-button img {
@@ -642,6 +642,56 @@ body {
   -webkit-appearance: none;
   -webkit-tap-highlight-color: transparent;
 }
+
+/* Поле поиска: шире и чуть ниже */
+.search-bar {
+  position: absolute;
+  top: -75px; /* скрыто сверху */
+  left: 50%;
+    width: 90%;
+  height: 30px;       /* 12.5 * 1.5 */
+  transform: translateX(-50%);
+  width: 98%;       /* немного шире по горизонтали */
+  max-width: 1040px; /* увеличена максимальная ширина */
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1px 10px; /* немного меньше по вертикали */
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  transition: top 0.3s;
+}
+
+/* Поле ввода */
+.search-bar input {
+  flex: 1;
+  padding: 1px 16px; /* чуть меньше по высоте */
+  border: none;
+  border-radius: 50px;
+  font-size: 11px;
+  outline: none;
+  background: transparent;
+  color: #fff;
+}
+
+/* Иконка лупы Font Awesome */
+#searchIcon {
+  margin-left: 12px;
+  cursor: pointer;
+  font-size: 14px;    /* размер лупы */
+  color: #000;        /* черная лупа */
+  background: transparent; /* прозрачный фон */
+  border: none;       /* убираем границу */
+  box-shadow: none;   /* убираем тень */
+  padding: 0;         /* убираем внутренние отступы */
+  border-radius: 0;   /* убираем скругление */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
     </style>
 </head>
 <body>
@@ -668,7 +718,7 @@ body {
       <div class="custom-button">
         <img src="reload.png" alt="Reload" />
       </div>
-      <div class="custom-button">
+      <div class="custom-button"  id="customButton">
         <img src="search.png" alt="Search" />
       </div>
     </div>
@@ -712,6 +762,15 @@ body {
 </div>
 
   </div>
+
+<!-- Поле поиска -->
+<div class="search-bar" id="searchBar">
+  <input type="text" id="cityInput" placeholder="Пошук населенного пункту" />
+  <button id="searchIcon" aria-label="Пошук">
+    <i class="fa fa-search"></i>
+  </button>
+</div>
+
 
     <!-- Modal Elements -->
     <div class="modal-background" id="modalBackground"></div>
@@ -1828,8 +1887,37 @@ function getNextObjectId3() {
     map.on('movestart', showZoomButtons);
     map.on('move', showZoomButtons);
 
-    document.getElementById('zoom-in').onclick = () => map.zoomIn();
-    document.getElementById('zoom-out').onclick = () => map.zoomOut();
+const customButton = document.getElementById('customButton');
+const searchBar = document.getElementById('searchBar');
+const searchIcon = document.getElementById('searchIcon');
+const cityInput = document.getElementById('cityInput');
+
+// Отображение/скрытие поля поиска
+customButton.addEventListener('click', () => {
+  searchBar.style.top = searchBar.style.top === '20px' ? '-100px' : '20px';
+});
+
+// Функция поиска города
+function searchCity() {
+  const city = cityInput.value;
+  if (!city) return;
+
+  fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${city}`)
+    .then(res => res.json())
+    .then(data => {
+      if (data.length > 0) {
+        const { lat, lon } = data[0];
+        map.setView([lat, lon], 12);
+      } else {
+        alert('Місто не знайдено');
+      }
+    });
+}
+
+searchIcon.addEventListener('click', searchCity);
+cityInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') searchCity();
+});
     </script>
 </body>
 </html>
